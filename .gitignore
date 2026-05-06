@@ -1,0 +1,16 @@
+build/
+build-debug/
+build-asan/
+stash/
+.env
+.env.*
+*.db
+*.db-shm
+*.db-wal
+*.o
+*.a
+*.so
+edge-benchmark.csv
+__pycache__/
+.pytest_cache/
+*.pyc

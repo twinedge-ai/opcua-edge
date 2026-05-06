@@ -1,0 +1,2 @@
+benchmark_name,tag_count,asset_count,event_count,duration_us,startup_us,reads_per_second,writes_per_second,events_per_second,avg_latency_us,p95_latency_us,p99_latency_us,cpu_percent_avg,rss_memory_kb_start,rss_memory_kb_peak,rss_memory_kb_end,error_count
+events_200,550,50,200,2001014,7082,0,0,143527,687,1386,1443,100.4491,27328,41512,41512,0

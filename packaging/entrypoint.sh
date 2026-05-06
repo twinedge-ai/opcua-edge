@@ -1,0 +1,19 @@
+#!/bin/sh
+set -eu
+
+DATA_DIR=${EDGE_DATA_DIR:-/data}
+TEMPLATE_DIR="$DATA_DIR/templates"
+DB_DIR="$DATA_DIR/db"
+DEFAULT_TEMPLATE_NAME=${EDGE_DEFAULT_TEMPLATE:-desalination_plant.edge}
+SEED_DIR=/app/templates
+
+mkdir -p "$TEMPLATE_DIR" "$DB_DIR"
+
+if [ ! -f "$TEMPLATE_DIR/$DEFAULT_TEMPLATE_NAME" ] && [ -f "$SEED_DIR/$DEFAULT_TEMPLATE_NAME" ]; then
+    cp "$SEED_DIR/$DEFAULT_TEMPLATE_NAME" "$TEMPLATE_DIR/$DEFAULT_TEMPLATE_NAME"
+fi
+
+export EDGE_CONFIG_PATH="${EDGE_CONFIG_PATH:-$TEMPLATE_DIR/$DEFAULT_TEMPLATE_NAME}"
+export EDGE_DB_PATH="${EDGE_DB_PATH:-$DB_DIR/opcua-edge.db}"
+
+exec /app/opcua-edge "$@"

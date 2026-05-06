@@ -1,0 +1,23 @@
+[Unit]
+Description=OPC UA Edge Server
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=opcua-edge
+Group=opcua-edge
+WorkingDirectory=/var/lib/opcua-edge
+Environment=EDGE_CONFIG_PATH=/etc/opcua-edge/desalination_plant.edge
+Environment=EDGE_DB_PATH=/var/lib/opcua-edge/opcua-edge.db
+ExecStart=/usr/local/bin/opcua-edge
+Restart=on-failure
+RestartSec=2
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/opcua-edge
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

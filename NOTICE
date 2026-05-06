@@ -1,0 +1,6 @@
+opcua-edge
+Copyright 2026 opcua-edge contributors
+
+This product includes open62541, distributed under the Mozilla Public
+License 2.0. The open62541 source is included as the external/open62541
+Git submodule. See external/open62541/LICENSE for its license terms.

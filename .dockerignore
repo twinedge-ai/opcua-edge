@@ -1,0 +1,11 @@
+.git/
+build/
+build-debug/
+build-asan/
+*.db
+*.db-shm
+*.db-wal
+__pycache__/
+.pytest_cache/
+*.pyc
+benchmarks/baselines/*.csv
