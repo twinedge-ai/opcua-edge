@@ -14,8 +14,11 @@ PROFILES = {
 
 def _engineering_to_raw(node: ModbusNode, value: float) -> int:
     if node.scale == 0.0:
-        return int(value) & 0xFFFF
-    return int(round(value / node.scale)) & 0xFFFF
+        raw = int(value)
+    else:
+        raw = int(round(value / node.scale))
+    raw = max(-32768, min(32767, raw))
+    return raw & 0xFFFF
 
 
 def profile_override(profile: str, node: ModbusNode) -> int | None:
